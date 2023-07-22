@@ -6,7 +6,6 @@ import { selectContacts, selectError, selectFilter, selectIsLoading } from "redu
 import { Loader } from "../Loader/Loader";
 import { useState } from "react";
 
-
 const ContactList = () => {
   const [toDelete, setToDelete] = useState(null)
   const contacts = useSelector(selectContacts);

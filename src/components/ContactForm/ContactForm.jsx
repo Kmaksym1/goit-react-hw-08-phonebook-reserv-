@@ -51,7 +51,8 @@ export const ContactForm = () => {
 
         <button type="submit" className={css.addBtn}>
           Add contact
-        </button>
+          </button>
+          
       </Form>
       </Formik>
       </>
