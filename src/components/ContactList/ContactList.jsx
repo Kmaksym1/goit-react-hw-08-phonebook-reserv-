@@ -24,7 +24,6 @@ const ContactList = () => {
       name.toLowerCase().includes(filters.toLowerCase())
     );
   };
-
   const visibleContacts = filteredContacts();
 
   return (<>
