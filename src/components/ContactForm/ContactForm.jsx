@@ -12,7 +12,7 @@ const schema = yup.object().shape({
   phone: yup.string().min(7).max(12).required(),
 });
 
-export const ContactForm = () => {
+const ContactForm = () => {
   const contacts = useSelector(selectContacts)
   const dispatch = useDispatch();
 
@@ -58,3 +58,4 @@ export const ContactForm = () => {
       </>
   );
 };
+export default ContactForm

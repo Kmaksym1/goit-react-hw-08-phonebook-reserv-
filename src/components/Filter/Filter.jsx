@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { filter } from '../../reduxe/filterSlice.jsx';
 import { useDispatch } from 'react-redux';
 
-export const Filter = () => {
+const Filter = () => {
   const [query, setQuery] = useState('');
 
   const dispatch = useDispatch();
@@ -30,3 +30,4 @@ export const Filter = () => {
     </div>
   );
 };
+export default Filter
