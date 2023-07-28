@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { selectContacts, selectError, selectFilter, selectIsLoading } from "reduxe/selectors";
 import { Loader } from "../Loader/Loader";
 import { useState } from "react";
-import { Button, Flex, List, ListItem } from "@chakra-ui/react";
+import { Button, Flex, List, ListItem, useColorModeValue } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
 
 const ContactList = () => {
@@ -26,6 +26,7 @@ const ContactList = () => {
     );
   };
   const visibleContacts = filteredContacts();
+  const iconColorMode = useColorModeValue('gray.600', 'gray.200')
 
   return (<Flex justifyContent={"space-around"} width="100%">
     {loading && <Loader color="#4fa94d" className={css.loading} />}
@@ -67,7 +68,7 @@ const ContactList = () => {
                 {id && toDelete === id ? (
                   <Loader color="red" height="25" width="25" />
                 ) : (
-                  <DeleteIcon boxSize={5} colorscheme="teal"/>
+                  <DeleteIcon boxSize={5} color={iconColorMode}/>
                 )}
               </Button>
             </ListItem>);
