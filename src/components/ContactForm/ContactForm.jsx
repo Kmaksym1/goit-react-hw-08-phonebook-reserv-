@@ -90,7 +90,6 @@ const ContactForm = () => {
                       if ((value.length < 9) &&(value.length<12) ) {
                         return 'Phone should be from 9 to 12 characters.';
                       }
-
                     }}
                   />
                   <FormErrorMessage>{errors.number}</FormErrorMessage>
