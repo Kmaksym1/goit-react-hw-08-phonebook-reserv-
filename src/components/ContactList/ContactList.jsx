@@ -47,7 +47,6 @@ const ContactList = () => {
                 type="button"
                 _hover={{
                   textDecoration: "none"
-                  
                 }}
                 style={{
                   background: "transparent",
