@@ -5,6 +5,7 @@ import { fetchAllContacts } from 'reduxe/operations';
 import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
+import { Box, Flex } from '@chakra-ui/react';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -12,23 +13,13 @@ const ContactsPage = () => {
     dispatch(fetchAllContacts());
   }, [dispatch]);
   return (
-    <div
-      style={{
-        backgroundColor: '#eaf3f8',
-        width: '45vh',
-        display: 'block',
-        fontSize: '40px',
-        margin: 'auto',
-        height: '50%',
-        borderRadius: '20px',
-        padding: '20px',
-        boxShadow: '3px 1px 8px rgb(209, 209, 209)',
-      }}
-    >
-      <ContactForm />
-      <Filter />
-      <ContactList />
-    </div>
+    <Flex align="center" justify="center" mt={30}>
+      <Box boxshadow="xl" colorscheme="teal" p={6} rounded="md" w="530px" fontSize="xl" boxShadow="dark-lg">
+        <ContactForm />
+        <Filter />
+        <ContactList />
+      </Box>
+    </Flex>
   );
 };
-export default ContactsPage
+export default ContactsPage;

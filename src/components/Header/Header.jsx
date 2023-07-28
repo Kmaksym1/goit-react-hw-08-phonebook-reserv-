@@ -4,8 +4,7 @@ import {
   Container,
   useColorMode,
   IconButton,
-  // Text,
-  // Button,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { MoonIcon, SettingsIcon } from '@chakra-ui/icons';
@@ -13,37 +12,44 @@ import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'reduxe/auth/auth-selectors';
 import { AuthMenu } from './AuthMenu/AuthMenu';
 import { UserMenu } from './UserMenu/UserMenu';
-import ContactsPage from 'components/Pages/ContactsPage';
-// import { logOut } from 'reduxe/auth/auth-operation';
 
-// import { Link as ReachLink } from "@reach/router"
-// import { Theme } from '@chakra-ui/react';
 
 const Header = () => {
-  // const dispatch = useDispatch();
   const { colorMode, toggleColorMode } = useColorMode();
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  
-  
+  const linkSize = useBreakpointValue({ base: 'sm', lg: 'md' });
+  const boxHeight = useBreakpointValue({ base: '12vh', lg: '5vh' });
   return (
-    <Box as="header" bg="Purple 600">
-      <Container maxW="container.lg" gap="30px">
-        <Flex h="5vh" justifyContent="center" align="center" gap="30px">
+    <Box as="header" bg="Purple 600" >
+      <Container maxW="container.lg" >
+        <Flex  h={boxHeight} justifyContent="center" align="center" gap="30px" >
           <Link
             to={`/`}
             as="a"
             colorscheme="blue"
-            size="md"
+            fontSize={linkSize}
             h="48px"
-            w="200px"
+            w={{ base: '100%', lg: '200px' }}
             border="1px"
             boxshadow="dark-md"
           >
             Home
           </Link>
-          {isLoggedIn ? <ContactsPage /> : <></>}
+          {isLoggedIn ? <Link
+            to={`/contacts`}
+            as="a"
+            colorscheme="blue"
+            fontSize={linkSize}
+            h="48px"
+            w="200px"
+            border="1px"
+            boxshadow="dark-md"
+          >
+            Contacts
+          </Link> : <></>}
           {isLoggedIn ? <UserMenu /> : <AuthMenu />}
           <IconButton
+            ml="30px"
             onClick={toggleColorMode}
             fontSize="lg"
             bg="none"
@@ -61,12 +67,3 @@ const Header = () => {
 export default Header;
 // {name: "poi1", email: "poi1@g.com"}
 
-// email
-// :
-// "poiuyt12@g.com"
-// name
-// :
-// "poiuyt12"
-// password
-// :
-// "poipoipoi"
